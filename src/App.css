@@ -1,0 +1,375 @@
+/* CSS Variables for global theme consistency */
+:root {
+  --primary-color: #4dabf7;
+  --primary-gradient: linear-gradient(90deg, #4dabf7, #007bff);
+  --bg-dark: #07090d;
+  --bg-paper: rgba(18, 22, 28, 0.9);
+  --text-main: #e6e6e6;
+  --accent-glow: rgba(77, 171, 247, 0.4);
+}
+
+/* Aurora Background Styles */
+.aurora-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: var(--bg-dark);
+  overflow: hidden;
+  /* Reduced blur significantly to improve repaints */
+  filter: blur(60px);
+  will-change: transform;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.blob-1 {
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(circle, #00f3ff 0%, transparent 70%);
+  top: -10%;
+  left: -10%;
+  animation: aurora-move 20s infinite alternate ease-in-out;
+}
+
+.blob-2 {
+  width: 900px;
+  height: 700px;
+  background: radial-gradient(circle, #4dabf7 0%, transparent 70%);
+  bottom: -10%;
+  right: -10%;
+  animation: aurora-move 25s infinite alternate-reverse ease-in-out;
+}
+
+.blob-3 {
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(circle, #00ff88 0%, transparent 70%);
+  top: 20%;
+  left: 30%;
+  animation: aurora-move 30s infinite alternate-reverse ease-in-out;
+}
+
+.blob-4 {
+  width: 600px;
+  height: 800px;
+  background: radial-gradient(circle, #7000ff 0%, transparent 70%);
+  bottom: 0%;
+  left: 5%;
+  animation: aurora-move 22s infinite alternate ease-in-out;
+}
+
+.blob-5 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #ff00d4 0%, transparent 70%);
+  top: 10%;
+  right: 15%;
+  animation: aurora-move 18s infinite alternate-reverse ease-in-out;
+  opacity: 0.2;
+}
+
+.blob-6 {
+  width: 1000px;
+  height: 400px;
+  background: radial-gradient(circle, #00d2ff 0%, transparent 70%);
+  bottom: -5%;
+  left: 20%;
+  animation: aurora-move 35s infinite alternate ease-in-out;
+  opacity: 0.25;
+}
+
+.aurora-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 85%);
+  z-index: 10;
+}
+
+@keyframes aurora-move {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(10%, 15%, 0) scale(1.1);
+  }
+
+  100% {
+    transform: translate3d(-10%, -10%, 0) scale(0.9);
+  }
+}
+
+/* Global Card Styling */
+body .card,
+body .MuiPaper-root.MuiCard-root {
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease;
+  background: var(--bg-paper) !important;
+  /* Optimization: Remove expensive blur and replace with strong background */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background-color: rgba(18, 22, 28, 0.98) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-main) !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+  contain: paint;
+  /* Optimization hint */
+}
+
+body .card:hover,
+body .MuiPaper-root.MuiCard-root:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow);
+  border: 2px solid var(--primary-color) !important;
+}
+
+/* Global Standard for Card Body */
+body .card-body {
+  padding: 1.5rem !important;
+}
+
+/* Global Shine Effect on Hover */
+body .card::after,
+body .MuiPaper-root.MuiCard-root::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+body .card:hover::after,
+body .MuiPaper-root.MuiCard-root:hover::after {
+  opacity: 1;
+  animation: shine 2s infinite linear;
+}
+
+/* Navbar Enhancements */
+.navbar {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: all 0.4s ease;
+  z-index: 1050;
+}
+
+/* Hero Section */
+.hero-section {
+  padding-top: 180px !important;
+  min-height: 100vh;
+  display: flex !important;
+  flex-direction: column;
+}
+
+/* AI Sanctum Pulse Glow */
+.ai-pulse {
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(77, 171, 247, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(77, 171, 247, 0.6);
+  }
+
+  100% {
+    box-shadow: 0 0 5px rgba(77, 171, 247, 0.2);
+  }
+}
+
+/* XP Gain Animation */
+.xp-float {
+  position: absolute;
+  top: -40px;
+  right: 25px;
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: 1.5rem;
+  animation: float-up 1.5s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-25px) scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(1);
+  }
+}
+
+/* Quest Completion Shine */
+.quest-complete {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #4caf50 !important;
+}
+
+.quest-complete::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(45deg);
+  animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+/* Section spacing */
+.section-gap {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* Form Styling */
+.MuiTextField-root,
+.MuiInputBase-root {
+  color: var(--text-main) !important;
+}
+
+.MuiFormLabel-root {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Linear Progress */
+.MuiLinearProgress-root {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.MuiLinearProgress-bar {
+  background: var(--primary-gradient) !important;
+}
+
+/* --- Card Swap Animation --- */
+.card-stack-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  margin: 40px auto;
+  perspective: 1000px;
+}
+
+.swap-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+.swap-card:hover {
+  transform: none !important;
+  /* Disable global hover lift */
+}
+
+.swap-card.position-0 {
+  z-index: 3;
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.swap-card.position-0:hover {
+  transform: translateY(-5px) scale(1.02) !important;
+}
+
+.swap-card.position-1 {
+  z-index: 2;
+  transform: translateY(20px) scale(0.95);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+
+.swap-card.position-2 {
+  z-index: 1;
+  transform: translateY(40px) scale(0.9);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.swap-card.swapping {
+  transform: translateX(150%) rotate(20deg) scale(0.8) !important;
+  opacity: 0 !important;
+}
+
+.card-swap-controls {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-swap {
+  background: var(--bg-paper);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.btn-swap:hover {
+  background: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 243, 255, 0.3);
+}
+
+.btn-swap:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
