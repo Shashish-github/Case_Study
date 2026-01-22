@@ -2,6 +2,9 @@
 
 A unique, interactive portfolio website that transforms the traditional resume experience into an engaging RPG-style adventure. Built with React and Material-UI, this portfolio presents professional information through gaming elements like XP bars, quest systems, and achievement unlocks.
 
+![Portfolio Hero Section](images/hero-section.png)
+*Player profile card with avatar, Level 12 progression, and XP: 40/100 system*
+
 ## ✨ Features
 
 ### 🎯 Core Gaming Elements
@@ -11,6 +14,9 @@ A unique, interactive portfolio website that transforms the traditional resume e
 - **Achievement System**: Unlockable badges for various accomplishments
 - **Epic Quests**: Major projects highlighted as special challenges
 - **AI Assistant**: Interactive documentation helper with RAG simulation
+
+![Quest Board Screenshot](images/ai-sanctum.png)
+*AI Sanctum - Interactive documentation assistant with RAG simulation and Achievement Hall*
 
 ### 🎨 Visual Experience
 - **Aurora Background**: Dynamic animated background effects
@@ -93,6 +99,9 @@ gamified-portfolio/
 
 ## 🎮 Gaming Elements Explained
 
+![Skills Forge Screenshot](images/skills-forge.png)
+*Skill Forge displaying Python (85%), JavaScript (80%), MERN Stack (75%), REST APIs & JWT (80%), SQL & DBMS (85%), and Git & Linux (70%) as power levels*
+
 ### XP System
 - Interactive experience points that increase when engaging with content
 - Visual progress bar showing current level progression
@@ -112,6 +121,9 @@ gamified-portfolio/
 - Unlockable badges for various accomplishments
 - Visual indicators for completed achievements
 - Gamified representation of professional milestones
+
+![Epic Quests Screenshot](images/epic-quests.png)
+*Epic Quests section featuring "Master of Shadows" - advanced cybersecurity and ethical hacking challenge*
 
 ## 🎨 Customization
 
